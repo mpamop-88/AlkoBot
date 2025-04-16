@@ -20,7 +20,6 @@ export function parseBattles() {
     if (cells.length >= 3) {
       const time = $(cells[0]).text().trim();        // Время боя
       const enemy = $(cells[2]).text().trim();       // Противник
-
       battles.push({
         time,
         enemy,
