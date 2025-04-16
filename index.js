@@ -1,27 +1,71 @@
-import { post,get } from "axios";
+import { post, get } from 'axios';
+import fs from 'fs';
+import { Telegraf, Markup } from 'telegraf';
+import cheerio from 'cheerio';
+import cron from 'node-cron';
 
-const login = "mr_DUDE"; const pass = "bbaarrbb00ss02";
+const bot = new Telegraf(process.env.BOT_TOKEN);
+const login = process.env.LOGIN;
+const pass = process.env.PASSWORD;
 
-async function loginOnce() { if (sessionCookies) { console.log("Уже авторизован. Повторный вход не требуется."); return; }
+const BATTLES_FILE = 'battles.html';
+const BATTLE_URL = `https://www.gwars.io/object.php?id=69403&page=oncoming1&sid=9760`;
 
-try { const res = await postps://www.gwars.io/login.php", new URLSearchParams({ login, pass, autologin: "1" }), { maxRedirects: 0, validateStatus: status => status === 302 } );
+let sessionCookies = null;
 
-  
-        sessionCookies = cookies;
-            console.log("✅ Успешный вход. SID сохранён.");
-     function getProtectedPage() { await loginOnce(); // авторизация, если нужно
+async function loginOnce() {
+  if (sessionCookies) {
+    console.log('Уже авторизован');
+    return;
+  }
 
-    if (!sessionCookies) { console.log("Нет куков — доступ невозможен."); return; }
+  try {
+    const res = await post('https://www.gwars.io/login.php', new URLSearchParams({
+      login,
+      pass,
+      autologin: '1',
+    }), {
+      maxRedirects: 0,
+      validateStatus: status => status === 302,
+    });
 
-    const url = "https://www.gwars.io/object.php?id=69403&page=oncoming1";
+    const cookies = res.headers['set-cookie'];
+    if (!cookies) {
+      console.log('❌ Куки не получены, вход не удался.');
+      return;
+    }
 
-    try { const res = await get{ headers: { Cookie: sessionCookies.join("; ") } });
+    sessionCookies = cookies;
+    console.log('✅ Успешный вход. SID сохранён.');
+  } catch (err) {
+    console.error('❌ Ошибка при логине:', err.message);
+  }
+}
 
-    console.log("✅ Доступ к странице получен. Пример содержимого:");
-    console.log(res.data.slice(0, 500)); // первые 500 символов HTML
+async function getProtectedPage() {
+  await loginOnce();
 
-    } catch (err) { console.error("Ошибка при получении страницы:", err.message); } }
+  if (!sessionCookies) {
+    console.log('❌ Нет активной сессии.');
+    return;
+  }
 
-    // Пример вызова 
-    getProtectedPage();
+  try {
+    const res = await get(BATTLE_URL, {
+      headers: {
+        Cookie: sessionCookies.join('; '),
+      },
+    });
 
+    console.log('✅ Доступ к странице получен. Пример содержимого:');
+    console.log(res.data.slice(0, 500)); // показать начало HTML
+
+    // можно сохранить в файл:
+    fs.writeFileSync(BATTLES_FILE, res.data);
+  } catch (err) {
+    console.error('❌ Ошибка при получении страницы:', err.message);
+  }
+}
+
+// Пример вызова
+getProtectedPage();
