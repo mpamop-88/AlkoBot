@@ -1,7 +1,0 @@
-BOT_TOKEN=BOT_TOKEN
-CHAT_ID=CHAT_ID
-LOGIN=login
-PASSWORD=pass
-BATTLE_URL: 'https://www.gwars.io/object.php?id=69403&page=oncoming1&sid=9760'
-BATTLES_FILE: 'battles.html'
-PORT=3000
