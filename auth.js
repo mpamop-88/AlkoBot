@@ -17,7 +17,7 @@ export async function loginOnce() {
       autologin: '1',
     }), {
       maxRedirects: 0,
-      validateStatus: status => status === 302,
+      validateStatus: (status) => status === 302,
     });
 
     const cookies = res.headers['set-cookie'];
