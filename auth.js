@@ -1,5 +1,4 @@
-// auth.js
-await post(url, payload);
+import axios from 'axios'; // ✅ Импорт целиком
 import { config } from './config.js';
 
 let sessionCookies = null;
@@ -11,7 +10,7 @@ export async function loginOnce() {
   }
 
   try {
-    const res = await post('https://www.gwars.io/login.php', new URLSearchParams({
+    const res = await axios.post('https://www.gwars.io/login.php', new URLSearchParams({
       login: config.LOGIN,
       pass: config.PASSWORD,
       autologin: '1',
