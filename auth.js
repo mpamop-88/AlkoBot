@@ -1,5 +1,5 @@
 // auth.js
-import { post } from 'axios';
+await post(url, payload);
 import { config } from './config.js';
 
 let sessionCookies = null;
