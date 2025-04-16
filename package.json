@@ -1,0 +1,22 @@
+{
+  "name": "gwars-battle-bot",
+  "version": "1.0.0",
+  "description": "Telegram-бот для напоминания о боях на сайте gwars.io",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["telegram", "bot", "gwars", "telegraf", "cron"],
+  "author": "Твоё имя",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "node-cron": "^3.0.3",
+    "telegraf": "^4.16.2"
+  }
+}
