@@ -1,5 +1,12 @@
-// index.js
-import 'dotenv/config'; // загрузка переменных из .env
+import 'dotenv/config';
 import { fetchAndSaveBattles } from './fetchBattles.js';
+import { parseBattles } from './parseBattles.js';
 
-fetchAndSaveBattles();
+async function run() {
+  await fetchAndSaveBattles();
+  const battles = parseBattles();
+  console.log('🛡 Список боёв:');
+  console.log(battles);
+}
+
+run();
