@@ -1,6 +1,6 @@
 // parseBattles.js
 import fs from 'fs';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import { config } from './config.js';
 
 export function parseBattles() {
