@@ -2,7 +2,7 @@
 import { Markup } from 'telegraf';
 import { parseBattles } from './parseBattles.js';
 import { getNextBattle, getTimeDiffString } from './utils.js';
-import fs from 'fs';
+import { fs } from 'fs';
 import { config } from './config.js';
 
 let battles = [];
@@ -24,7 +24,7 @@ export function setupCommands(bot) {
 
   bot.start((ctx) => {
     loadBattles();
-    ctx.reply('Привет! Я бот-секретарь боёв ⚔️', keyboard);
+    ctx.reply('Привет! Я ваши трубы шатал ⚔️', keyboard);
   });
 
   bot.hears('📅 Ближайший бой', (ctx) => {
