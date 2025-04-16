@@ -1,19 +1,14 @@
+// index.js
 import 'dotenv/config';
-import { fetchAndSaveBattles } from './fetchBattles.js';
-import { parseBattles } from './parseBattles.js';
-import { getNextBattle, getTimeDiffString } from './utils.js';
+import { Telegraf } from 'telegraf';
+import { config } from './config.js';
+import { setupCommands } from './commands.js';
+import { startScheduler } from './scheduler.js';
 
-async function run() {
-  await fetchAndSaveBattles();
-  const battles = parseBattles();
-  const next = getNextBattle(battles);
+const bot = new Telegraf(config.BOT_TOKEN);
 
-  if (next) {
-    const diff = getTimeDiffString(next.date);
-    console.log(`🔔 Следующий бой против ${next.enemy} через ${diff}`);
-  } else {
-    console.log('❌ Ближайших боёв не найдено.');
-  }
-}
+setupCommands(bot);
+startScheduler();
+bot.launch();
 
-run();
+console.log('🤖 Бот запущен');
