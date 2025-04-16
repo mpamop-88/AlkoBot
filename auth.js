@@ -1,5 +1,5 @@
 import axios from 'axios'; // ✅ Импорт целиком
-import config from './config.js';
+import { config } from './config.js'; // ✅ правильно
 
 let sessionCookies = null;
 
