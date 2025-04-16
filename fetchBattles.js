@@ -1,4 +1,4 @@
-// fetchBattles.js
+//  fetchBattles.js
 import { get } from 'axios';
 import fs from 'fs';
 import { config } from './config.js';
