@@ -69,3 +69,8 @@ async function getProtectedPage() {
 
 // Пример вызова
 getProtectedPage();
+
+cron.schedule('0 5 * * *', () => {
+  console.log('⏰ Запуск ежедневной задачи в 05:00');
+  getProtectedPage();
+});
