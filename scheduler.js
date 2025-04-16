@@ -31,7 +31,7 @@ cron.schedule('* * * * *', () => {
     if (battleTime.diff(now, 'minute') === 1) {
       const msg = `⚔️ Через 1 минуту бой против: ${battle.enemy} (${battle.time})`;
       console.log(msg);
-      bot.telegram.sendMessage(/* chat_id */, msg); // <-- укажи chat_id
+      bot.telegram.sendMessage(1717034355, msg); // <-- укажи chat_id
     }
   }
 });
