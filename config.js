@@ -5,4 +5,5 @@ export const config = {
   PASSWORD: process.env.PASSWORD,
   BATTLE_URL: 'https://www.gwars.io/object.php?id=69403&page=oncoming1&sid=9760',
   BATTLES_FILE: 'battles.html',
+  CHAT_ID: process.env.CHAT_ID // id группы или канала для уведомлений
 };
