@@ -4,7 +4,7 @@ import * as cheerio from 'cheerio';
 import { config } from './config.js';
 
 export function parseBattles() {
-  if (!fs.existsSync(config.env.BATTLES_FILE)) {
+  if (!fs.existsSync(config.BATTLES_FILE)) {
     console.error('❌ Файл с боями не найден.');
     return [];
   }
