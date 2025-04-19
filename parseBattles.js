@@ -15,7 +15,7 @@ export function parseBattles() {
   const battles = [];
 
   // Таблица с боями на странице, как правило, находится в .wb tr
-  $('table.wb tr').each((i, row) => {
+  $('table.greengreenbg tr').each((i, row) => {
     const cells = $(row).find('td');
     if (cells.length >= 3) {
       const time = $(cells[0]).text().trim();        // Время боя
