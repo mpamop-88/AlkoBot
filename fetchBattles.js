@@ -1,6 +1,6 @@
 //  fetchBattles.js
 import { get } from 'axios';
-import { fs } from 'fs';
+import * as fs from 'node:fs';
 import { config } from './config.js';
 import { loginOnce } from './auth.js';
 
