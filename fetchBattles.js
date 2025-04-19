@@ -1,8 +1,8 @@
 //  fetchBattles.js
-import { get } from 'axios';
+import axios from 'axios';
 import * as fs from 'node:fs'; // ✅ Рекомендуется для ES-модулей
-import { config } from './config.js';
-import { loginOnce } from './auth.js';
+import config from './config.js';
+import loginOnce from './auth.js';
 
 export async function fetchAndSaveBattles() {
   const cookies = await loginOnce();
