@@ -15,17 +15,17 @@ export function parseBattles() {
   const battles = [];
 
   // Таблица с боями на странице, как правило, находится в .wb tr
-  $('table.greengreenbg tr').each((i, row) => {
-    const cells = $(row).find('td');
-    if (cells.length >= 3) {
-      const time = $(cells[0]).text().trim();        // Время боя
-      const enemy = $(cells[2]).text().trim();       // Противник
-      battles.push({
-        time,
-        enemy,
-      });
-    }
-  });
+const rows = document.querySelectorAll('#portsblock table:last-of-type tr');
+rows.forEach((row, index) => {
+  if (index === 0) return; // пропускаем заголовок
+  const cells = row.querySelectorAll('td');
+  const time = cells[0]?.textContent.trim();
+
+  const matchup = cells[2]?.textContent.trim();
+
+  console.log(`${time} | ${matchup}`);
+});
+
 
   return battles;
 }
