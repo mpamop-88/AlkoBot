@@ -9,13 +9,13 @@ export async function fetchAndSaveBattles() {
   if (!cookies) return null;
 
   try {
-    const res = await axios.get(config.BATTLE_URL, {
+    const res = await axios.get(config.env.BATTLE_URL, {
       headers: {
         Cookie: cookies.join('; '),
       },
     });
 
-    fs.writeFileSync(config.BATTLES_FILE, res.data);
+    fs.writeFileSync(config.env.BATTLES_FILE, res.data);
     console.log('✅ Страница боёв сохранена в файл.');
     return res.data;
   } catch (err) {
