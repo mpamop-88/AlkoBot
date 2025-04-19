@@ -9,7 +9,7 @@ export function parseBattles() {
     return [];
   }
 
-  const html = fs.readFileSync(config.env.BATTLES_FILE, 'utf-8');
+  const html = fs.readFileSync(config.BATTLES_FILE, 'utf-8');
   const $ = cheerio.load(html);
 
   const battles = [];
