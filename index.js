@@ -18,6 +18,6 @@ if (process.env.PORT) {
 
 setupCommands(bot);
 startScheduler();
-
+bot.launch();
 
 console.log('🤖 Бот запущен');
