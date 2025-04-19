@@ -2,8 +2,9 @@
 import { Markup } from 'telegraf';
 import { parseBattles } from './parseBattles.js';
 import { getNextBattle, getTimeDiffString } from './utils.js';
-import { fs } from 'fs';
+import fs from 'fs'; // ← исправлено здесь
 import { config } from './config.js';
+
 
 let battles = [];
 
