@@ -4,12 +4,12 @@ import * as cheerio from 'cheerio';
 import { config } from './config.js';
 
 export function parseBattles() {
-  if (!fs.existsSync(config.BATTLES_FILE)) {
+  if (!fs.existsSync(config.env.BATTLES_FILE)) {
     console.error('❌ Файл с боями не найден.');
     return [];
   }
 
-  const html = fs.readFileSync(config.BATTLES_FILE, 'utf-8');
+  const html = fs.readFileSync(config.env.BATTLES_FILE, 'utf-8');
   const $ = cheerio.load(html);
 
   const battles = [];
