@@ -15,15 +15,20 @@ export function parseBattles() {
   const battles = [];
 
   // Таблица с боями на странице, как правило, находится в .wb tr
-const rows = document.querySelectorAll('#portsblock table:last-of-type tr');
-rows.forEach((row, index) => {
-  if (index === 0) return; // пропускаем заголовок
-  const cells = row.querySelectorAll('td');
-  const time = cells[0]?.textContent.trim();
+const rows = $('#portsblock table:last-of-type tr');
 
-  const matchup = cells[2]?.textContent.trim();
+rows.each((index, row) => {
+  if (index === 0) return; // Пропускаем заголовок
+  const cells = $(row).find('td');
+  const time = $(cells[0]).text().trim();
+  const matchup = $(cells[2]).text().trim();
 
   console.log(`${time} | ${matchup}`);
+
+  battles.push({
+    time,
+    enemy: matchup,
+  });
 });
 
 
