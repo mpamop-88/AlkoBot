@@ -10,7 +10,7 @@ let battles = [];
 
 // Загрузка боёв из файла в память
 function loadBattles() {
-  if (fs.existsSync(config.BATTLES_FILE)) {
+  if (fs.existsSync(config.env.BATTLES_FILE)) {
     battles = parseBattles();
   } else {
     battles = [];
