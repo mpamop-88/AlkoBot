@@ -29,6 +29,8 @@ rows.each((index, row) => {
     time,
     enemy: matchup,
   });
+  console.log('Таблица найдена?', $('#portsblock table:last-of-type').length);
+
 });
 
 
