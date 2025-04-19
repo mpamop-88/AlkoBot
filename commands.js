@@ -2,7 +2,7 @@
 import { Markup } from 'telegraf';
 import { parseBattles } from './parseBattles.js';
 import { getNextBattle, getTimeDiffString } from './utils.js';
-import fs from 'fs'; // ← исправлено здесь
+import * as fs from 'node:fs';
 import { config } from './config.js';
 
 
