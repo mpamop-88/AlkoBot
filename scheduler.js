@@ -11,7 +11,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat.js';
 dayjs.extend(customParseFormat);
 
 // Инициализация бота
-const bot = new Telegraf(config.env.BOT_TOKEN);
+const bot = new Telegraf(config.BOT_TOKEN);
 
 // Храним список боёв в памяти
 let battles = [];
