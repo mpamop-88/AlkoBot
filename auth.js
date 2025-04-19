@@ -10,7 +10,7 @@ export async function loginOnce() {
   }
 
   try {
-    const res = await axios.post('https://www.gwars.io/login.php', new URLSearchParams({
+    const res = await axios.post('https://www.gwars.io/index.php?frontpage', new URLSearchParams({
       login: config.LOGIN,
       pass: config.PASSWORD,
       autologin: '1',
