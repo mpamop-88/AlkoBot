@@ -11,8 +11,8 @@ export async function loginOnce() {
 
   try {
     const res = await axios.post('https://www.gwars.io/index.php?frontpage', new URLSearchParams({
-      login: config.LOGIN,
-      pass: config.PASSWORD,
+      login: config.env.LOGIN,
+      pass: config.env.PASSWORD,
       autologin: '1',
     }), {
       maxRedirects: 0,
