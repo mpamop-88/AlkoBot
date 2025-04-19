@@ -11,8 +11,8 @@ if (process.env.PORT) {
   const http = await import('node:http');
   http.createServer((_, res) => {
     res.end('Bot is running');
-  }).listen(process.env.PORT, () => {
-    console.log(`Server is listening on port ${process.env.PORT}`);
+  }).listen(process.PORT, () => {
+    console.log(`Server is listening on port ${process.PORT}`);
   });
 }
 
