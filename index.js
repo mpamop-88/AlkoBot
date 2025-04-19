@@ -4,7 +4,7 @@ import { config } from './config.js';
 import { setupCommands } from './commands.js';
 import { startScheduler } from './scheduler.js';
 
-const bot = new Telegraf(config.BOT_TOKEN);
+const bot = new Telegraf(config.env.BOT_TOKEN);
 
 // Если Render ожидает, чтобы приложение слушало порт
 if (process.env.PORT) {
